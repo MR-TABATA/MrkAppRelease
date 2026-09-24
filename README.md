@@ -21,3 +21,14 @@ The workflow first tries the repository's standard `GITHUB_TOKEN`. If GitHub doe
 - Tag: `<product>-v<version>` (for example, `mrkdiff-hex-v1.0.0`)
 - Asset: `<Product>-<version>.dmg`
 - Every public DMG must be Developer ID signed, notarized by Apple, stapled, and checked with Gatekeeper before upload.
+
+## Shared release command
+
+Each app has one file under `products/`; signing, notarization, GitHub Release, Polar upload,
+release notes, tags, cross-repository reference updates, commits and pushes are handled by one command.
+
+```sh
+sh scripts/release.sh mrkdiff-hex 1.0.1 --publish
+```
+
+Add another app by adding `products/<product>.conf`; do not copy the release engine.
