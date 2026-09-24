@@ -10,6 +10,12 @@ Signed and notarized macOS releases for Mrk apps. Source code is maintained in s
 
 MrkDiff Hex includes a 14-day free trial from first launch. No credit card is required.
 
+## Metrics
+
+`.github/workflows/collect-metrics.yml` runs every day at 09:17 JST and can also be run manually. It appends rolling 14-day repository traffic and cumulative release-asset download counts to [`metrics/history.csv`](metrics/history.csv).
+
+The workflow first tries the repository's standard `GITHUB_TOKEN`. If GitHub does not allow that token to read Traffic API data, download counts are still recorded and `traffic_status` becomes `token_required`. To enable traffic figures, add a fine-grained repository secret named `TRAFFIC_TOKEN`, restricted to this repository with read-only Administration permission.
+
 ## Release naming
 
 - Tag: `<product>-v<version>` (for example, `mrkdiff-hex-v1.0.0`)
