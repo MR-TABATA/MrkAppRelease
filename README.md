@@ -26,6 +26,7 @@ The workflow first tries the repository's standard `GITHUB_TOKEN`. If GitHub doe
 
 Each app has one file under `products/`; signing, notarization, GitHub Release, Polar upload,
 release notes, tags, cross-repository reference updates, commits and pushes are handled by one command.
+The complete setup and operating procedure is documented in [`docs/releasing.md`](docs/releasing.md).
 
 ```sh
 sh scripts/release.sh mrkdiff-hex 1.0.1 --publish
