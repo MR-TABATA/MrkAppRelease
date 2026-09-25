@@ -64,6 +64,21 @@ cd ~/Git/MrkDiff
 sh scripts/release.sh 1.0.1 --publish
 ```
 
+## MrkEditor
+
+設定は `products/mrkeditor.conf`。MrkEditor は非公開ソース、MrEditor は公開コア兼LP側として扱う。
+Polar 商品は `c061ff3e-30d0-4c1d-8e94-ca36f5ba8248`、Organization は MrkDiff Hex と同じ。
+
+Polar Access Token は次の Keychain サービスへ保存する。
+
+```sh
+security add-generic-password -U -a "$USER" -s "com.aaedit.MrkEditor.polar-access-token" -w
+```
+
+初回公開では、事前に Polar 商品へ MrkEditor 用の File Downloads Benefit を 1 つだけ接続してから、
+`upload-polar.sh` または `release.sh --publish` を実行する。Benefit が 0 件または複数件だと
+アップロードスクリプトは停止する。
+
 ## 製品を追加する
 
 `products/mrkdiff-hex.conf`を参考に`products/<product>.conf`を追加する。最低限、次が必要。
@@ -84,9 +99,7 @@ sh scripts/release.sh mrkeditor 1.0.0 --check
 sh scripts/release.sh mrkeditor 1.0.0 --publish
 ```
 
-MrkEditorは現時点ではPolar商品IDと配布用DMG作成処理が未設定のため、設定完了後に
-`products/mrkeditor.conf`を追加する。別製品としてMrkDiffを配布する場合も、同様に
-`products/mrkdiff.conf`を追加する。
+別製品としてMrkDiffを配布する場合も、同様に`products/mrkdiff.conf`を追加する。
 
 ## 秘密情報
 
