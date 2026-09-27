@@ -14,6 +14,19 @@ Mrk 系アプリの署名・公証済み macOS リリース置き場です。ソ
 MrkDiff Hex は初回起動から 14 日間の無料トライアル付きです。開始にクレジットカードは不要です。
 MrkEditor には別トライアルを設けません。購入前の試用は、同じ editor core を使う無料版 MrEditor で行えます。MrkEditor のダウンロードは Polar の購入者ポータルから提供します。
 
+## リリース履歴
+
+### MrkEditor 1.0.1 — 2026-09-27
+
+- 無料版 MrEditor から移行するユーザー向けに、File メニューへ「MrEditorから設定を読み込む…」を追加。
+- ダウンロードは Polar の購入者ポータルから提供します。
+
+### MrkDiff Hex 1.0.0 — 2026-09-24
+
+- 初回リリース。
+- 初回起動から 14 日間の無料トライアル付き。
+- Developer ID 署名・Apple 公証済みの Universal macOS アプリ。
+
 ## Metrics
 
 `.github/workflows/collect-metrics.yml` は毎日 09:17 JST に実行され、手動実行もできます。直近 14 日間のリポジトリ traffic と、Release asset の累計ダウンロード数を [`metrics/history.csv`](metrics/history.csv) に追記します。

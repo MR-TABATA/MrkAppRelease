@@ -14,6 +14,19 @@ Signed and notarized macOS releases for Mrk apps. Source code is maintained in s
 MrkDiff Hex includes a 14-day free trial from first launch. No credit card is required.
 MrkEditor does not have a separate trial; the free MrEditor app uses the same editor core and can be used before purchase.
 
+## Release History
+
+### MrkEditor 1.0.1 — 2026-09-27
+
+- Adds "Import Settings from MrEditor..." to the File menu for users moving from the free MrEditor app.
+- Download is available from your Polar purchase portal.
+
+### MrkDiff Hex 1.0.0 — 2026-09-24
+
+- Initial release.
+- 14-day free trial from first launch.
+- Developer ID signed and notarized universal macOS app.
+
 ## Metrics
 
 `.github/workflows/collect-metrics.yml` runs every day at 09:17 JST and can also be run manually. It appends rolling 14-day repository traffic and cumulative release-asset download counts to [`metrics/history.csv`](metrics/history.csv).
