@@ -31,7 +31,7 @@ release notes, tags, cross-repository reference updates, commits and pushes are 
 The complete setup and operating procedure is documented in [`docs/releasing.md`](docs/releasing.md).
 
 ```sh
-sh scripts/release.sh mrkdiff-hex 1.0.1 --publish
+sh scripts/release.sh <product> <version> --publish
 ```
 
 Add another app by adding `products/<product>.conf`; do not copy the release engine.
