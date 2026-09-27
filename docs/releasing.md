@@ -2,11 +2,19 @@
 
 ## 方針
 
-配布バイナリは公開リポジトリ `MR-TABATA/MrkAppRelease` に集約する。
-リリース処理は `scripts/release.sh` の1本にまとめ、製品ごとの差は
-`products/<product>.conf` だけに置く。製品ごとにリリーススクリプトをコピーしない。
+Mrk系アプリには、配布方法が2種類ある。
 
-共通処理は次のとおり。
+1. **public trial型**: 未購入者がGitHubからDMGを直接ダウンロードして試せるアプリ。
+   例: MrkDiff Hex。公開リポジトリ `MR-TABATA/MrkAppRelease` のGitHub Releaseに
+   DMG assetを置く。
+2. **Polar-only paid型**: 別トライアルを設けず、購入者だけがPolar購入者ポータルから
+   DMGをダウンロードするアプリ。例: MrkEditor。`MR-TABATA/MrkAppRelease` には
+   リリース履歴だけを置き、DMG assetは置かない。
+
+`scripts/release.sh` は public trial型のための共通リリースエンジンである。製品ごとの差は
+`products/<product>.conf` だけに置き、製品ごとにリリーススクリプトをコピーしない。
+
+public trial型の共通処理は次のとおり。
 
 - テストと未コミット変更のコミット
 - 前回tag以降のソース変更からCHANGELOGとRelease notesを生成
@@ -16,6 +24,11 @@
 - 日英LPと各READMEのダウンロードURL更新
 - source tag、各リポジトリのコミットとpush
 - 公開DMG URLの確認
+
+Polar-only paid型では、GitHub Releaseを作らない。GitHub Releasesはassetを付けなくても
+`Source code (zip)` / `Source code (tar.gz)` を自動表示するため、一般ユーザーには
+「ソースまたは配布物が公開されている」ように見えて紛らわしい。リリース情報は
+`README.md` / `README.ja.md` のRelease Historyに書く。
 
 ## 初回設定
 
@@ -44,6 +57,7 @@ security add-generic-password -U -a "$USER" -s "com.aaedit.MrkDiff.polar-access-
 ## MrkDiff Hex
 
 設定は `products/mrkdiff-hex.conf`。事前検査は外部へ公開せず、ファイルも変更しない。
+例では次に出すバージョンを `1.0.1` としている。
 
 ```sh
 cd ~/Git/MrkAppRelease
@@ -76,8 +90,54 @@ security add-generic-password -U -a "$USER" -s "com.aaedit.MrkEditor.polar-acces
 ```
 
 初回公開では、事前に Polar 商品へ MrkEditor 用の File Downloads Benefit を 1 つだけ接続してから、
-`upload-polar.sh` または `release.sh --publish` を実行する。Benefit が 0 件または複数件だと
-アップロードスクリプトは停止する。
+`upload-polar.sh` を実行する。Benefit が 0 件または複数件だとアップロードスクリプトは停止する。
+
+MrkEditor は Polar-only paid型なので、`release.sh --publish` は使わない。`release.sh` は
+GitHub ReleaseにDMG assetを置くため、未購入者がpublic GitHubから直接ダウンロードできてしまう。
+
+### Polar-only paid型の手順
+
+MrkEditorと同じ販売方式のアプリでは、次の順番で進める。
+
+1. **ソースリポジトリでバージョンを確定する。**
+   `VERSION` と `CHANGELOG.md` を更新し、必要なソース変更をコミット・pushする。
+   非公開ソースリポジトリ側のtag（例: `v1.0.1`）は作ってよい。publicな
+   `MR-TABATA/MrkAppRelease` 側には製品tagを作らない。
+2. **署名・公証済みDMGを作る。**
+
+   ```sh
+   cd ~/Git/MrkEditor
+   SIGN_IDENTITY=2CC8414D04AECA2A8FBA4D57754C624F6ED4BE1A \
+   NOTARY_PROFILE=mreditor sh scripts/make_dmg.sh
+   ```
+
+   `PRO_DEV_UNLOCK=1` などの開発用解錠フラグが入ったビルドを配布してはいけない。
+3. **Polar File Downloadsへアップロードする。**
+
+   ```sh
+   cd ~/Git/MrkAppRelease
+   POLAR_ACCESS_TOKEN="$(security find-generic-password -w -a "$USER" -s "com.aaedit.MrkEditor.polar-access-token")" \
+     sh scripts/upload-polar.sh products/mrkeditor.conf ../MrkEditor/.build/MrkEditor-1.0.1.dmg 1.0.1
+   ```
+
+   `upload-polar.sh` は新ファイルを先頭activeにし、既存ファイルをarchivedにする。
+4. **購入者ポータルから実ダウンロードしてSHA-256を照合する。**
+
+   ```sh
+   shasum -a 256 ~/Downloads/MrkEditor-1.0.1.dmg
+   shasum -a 256 ~/Git/MrkEditor/.build/MrkEditor-1.0.1.dmg
+   ```
+
+   2つが一致してから配布完了とする。
+5. **公開リリース情報だけを更新する。**
+   `MR-TABATA/MrkAppRelease` の `README.md` / `README.ja.md` にRelease Historyを追加する。
+   DMGへの直リンクは書かず、`Download is available from your Polar purchase portal.` のように
+   Polar購入者ポータルを案内する。
+6. **GitHub Releaseを作らない。**
+   assetなしReleaseでもGitHubがsource archiveを自動表示するため、Polar-only paid型では使わない。
+
+Products表では、MrkEditorのDownload欄は `Sold through Polar` / `Polar で販売` とし、必要なら
+Polar checkoutへリンクする。DMG URLへはリンクしない。
 
 ## 製品を追加する
 
@@ -92,12 +152,15 @@ security add-generic-password -U -a "$USER" -s "com.aaedit.MrkEditor.polar-acces
 - Polar Organization ID、Product ID、Keychainサービス名
 - Polar商品に紐付いたFile Downloads Benefit
 
-追加後は、まず`--check`で検証してから`--publish`する。
+public trial型として追加した後は、まず`--check`で検証してから`--publish`する。
 
 ```sh
-sh scripts/release.sh mrkeditor 1.0.0 --check
-sh scripts/release.sh mrkeditor 1.0.0 --publish
+sh scripts/release.sh <product> <version> --check
+sh scripts/release.sh <product> <version> --publish
 ```
+
+ただし、これはpublic trial型にする場合だけである。MrkEditorと同じPolar-only paid型では、
+上の「Polar-only paid型の手順」に従い、`release.sh --publish` は使わない。
 
 別製品としてMrkDiffを配布する場合も、同様に`products/mrkdiff.conf`を追加する。
 
