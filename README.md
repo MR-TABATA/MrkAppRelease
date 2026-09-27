@@ -7,8 +7,10 @@ Signed and notarized macOS releases for Mrk apps. Source code is maintained in s
 | App | Download | Product page |
 | --- | --- | --- |
 | MrkDiff Hex | [MrkDiff-Hex-1.0.0.dmg](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.0.0/MrkDiff-Hex-1.0.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
+| MrkEditor | [MrkEditor-1.0.1.dmg](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkeditor-v1.0.1/MrkEditor-1.0.1.dmg) | [English](https://mr-tabata.github.io/MrEditor/MrkEditor.html) · [日本語](https://mr-tabata.github.io/MrEditor/MrkEditor.ja.html) |
 
 MrkDiff Hex includes a 14-day free trial from first launch. No credit card is required.
+MrkEditor does not have a separate trial; the free MrEditor app uses the same editor core and can be used before purchase.
 
 ## Metrics
 
