@@ -8,10 +8,10 @@ Mrk 系アプリの署名・公証済み macOS リリース置き場です。ソ
 
 | アプリ | ダウンロード | 製品ページ |
 | --- | --- | --- |
-| MrkDiff Hex | [MrkDiff-Hex-1.0.0.dmg](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.0.0/MrkDiff-Hex-1.0.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
+| MrkDiff Hex | [アプリをダウンロード（14日間トライアル）](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.0.0/MrkDiff-Hex-1.0.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
 | MrkEditor | [Polar で販売](https://buy.polar.sh/polar_cl_S32h7CYTXCxbYQ5IimcpI4DayCFkHUYQ8I6bv2tOki8) | [English](https://mr-tabata.github.io/MrEditor/MrkEditor.html) · [日本語](https://mr-tabata.github.io/MrEditor/MrkEditor.ja.html) |
 
-MrkDiff Hex は初回起動から 14 日間の無料トライアル付きです。開始にクレジットカードは不要です。
+MrkDiff Hex は初回起動から 14 日間の無料トライアル付きです。開始にクレジットカードは不要です。購入後は同じアプリにライセンスキーを入力します。
 MrkEditor には別トライアルを設けません。購入前の試用は、同じ editor core を使う無料版 MrEditor で行えます。MrkEditor のダウンロードは Polar の購入者ポータルから提供します。
 
 ## リリース履歴
@@ -24,7 +24,7 @@ MrkEditor には別トライアルを設けません。購入前の試用は、�
 ### MrkDiff Hex 1.0.0 — 2026-09-24
 
 - 初回リリース。
-- 初回起動から 14 日間の無料トライアル付き。
+- 初回起動から 14 日間の無料トライアル付き。購入後は同じアプリにライセンスキーを入力します。
 - Developer ID 署名・Apple 公証済みの Universal macOS アプリ。
 
 ## Metrics
