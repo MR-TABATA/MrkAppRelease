@@ -10,14 +10,19 @@ Mrk 系アプリの署名・公証済み macOS リリース置き場です。ソ
 | --- | --- | --- |
 | MrkDiff Hex | [アプリをダウンロード（14日間トライアル）](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.0.0/MrkDiff-Hex-1.0.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
 | MrkEditor | [Polar で販売](https://buy.polar.sh/polar_cl_S32h7CYTXCxbYQ5IimcpI4DayCFkHUYQ8I6bv2tOki8) | [English](https://mr-tabata.github.io/MrEditor/MrkEditor.html) · [日本語](https://mr-tabata.github.io/MrEditor/MrkEditor.ja.html) |
-<!-- Polar 商品と checkout link を作成したら追加する:
 | MrkDown | [Polar で販売](https://buy.polar.sh/polar_cl_0ZFDepQfKNP0v374jKC5AApEKjtQRs0gowqVs3x6YvO) | [English](https://github.com/MR-TABATA/MRDown) · [日本語](https://github.com/MR-TABATA/MRDown/blob/main/README.ja.md) |
--->
 
 MrkDiff Hex は初回起動から 14 日間の無料トライアル付きです。開始にクレジットカードは不要です。購入後は同じアプリにライセンスキーを入力します。
 MrkEditor には別トライアルを設けません。購入前の試用は、同じ editor core を使う無料版 MrEditor で行えます。MrkEditor のダウンロードは Polar の購入者ポータルから提供します。
+MrkDown には別トライアルを設けません。購入前の試用は無料版 MRDown で行えます。購入後は Polar の購入者ポータルから DMG をダウンロードし、`MrkDown License Key - copy to app` を MrkDown の Settings > Licenses に入力します。
 
 ## リリース履歴
+
+### MrkDown 1.0.0 — 2026-09-28
+
+- AI diff explanation 向けの有償版初回リリース。
+- ダウンロードとライセンスキーは Polar の購入者ポータルから提供します。
+- Developer ID 署名・Apple 公証済みの Apple Silicon macOS アプリ。
 
 ### MrkEditor 1.0.1 — 2026-09-27
 
