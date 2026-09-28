@@ -8,7 +8,7 @@ Mrk 系アプリの署名・公証済み macOS リリース置き場です。ソ
 
 | アプリ | ダウンロード | 製品ページ |
 | --- | --- | --- |
-| MrkDiff Hex | [アプリをダウンロード（14日間トライアル）](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.0.0/MrkDiff-Hex-1.0.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
+| MrkDiff Hex | [アプリをダウンロード（14日間トライアル）](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.1.0/MrkDiff-Hex-1.1.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
 | MrkEditor | [Polar で販売](https://buy.polar.sh/polar_cl_S32h7CYTXCxbYQ5IimcpI4DayCFkHUYQ8I6bv2tOki8) | [English](https://mr-tabata.github.io/MrEditor/MrkEditor.html) · [日本語](https://mr-tabata.github.io/MrEditor/MrkEditor.ja.html) |
 | MrkDown | [Polar で販売](https://buy.polar.sh/polar_cl_0ZFDepQfKNP0v374jKC5AApEKjtQRs0gowqVs3x6YvO) | [English](https://github.com/MR-TABATA/MRDown) · [日本語](https://github.com/MR-TABATA/MRDown/blob/main/README.ja.md) |
 
@@ -43,7 +43,7 @@ MrkDown には別トライアルを設けません。購入前の試用は無料
 
 ## リリース名
 
-- タグ: `<product>-v<version>`（例: `mrkdiff-hex-v1.0.0`）
+- タグ: `<product>-v<version>`（例: `mrkdiff-hex-v1.1.0`）
 - Asset: `<Product>-<version>.dmg`
 - public に置く DMG は、アップロード前に必ず Developer ID 署名、Apple 公証、staple、Gatekeeper 確認を済ませます。
 
