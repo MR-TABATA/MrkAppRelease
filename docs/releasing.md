@@ -178,6 +178,34 @@ security add-generic-password -U -a "$USER" -s "com.hitoshi.MrkDown.polar-access
 初回販売公開のブランチでは、`README.md` / `README.ja.md` のProducts表へMrkDown行を追加し、
 Download欄をPolar Checkout Linkへ向ける。DMGへの直リンクは書かない。
 
+### Polar-only release script
+
+次回以降のMrkDown公開は、GitHub Releaseを作らずに次で行う。
+
+```sh
+cd /Users/hitoshi/Git/MrkAppRelease
+sh scripts/release-polar-only.sh mrkdown 1.0.1 --check
+sh scripts/release-polar-only.sh mrkdown 1.0.1 --publish
+```
+
+既にビルド済みDMGを作ってある場合は、ビルドを省略してそのDMGをPolarへアップロードできる。
+
+```sh
+sh scripts/release-polar-only.sh mrkdown 1.0.1 --publish \
+  --dmg ../MrkDown/src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/MrkDown_1.0.1_aarch64.dmg
+```
+
+このスクリプトが行うこと:
+
+- `package.json` と `src-tauri/tauri.conf.json` のversion更新
+- `npm test`、sidecar生成、Tauri Apple Silicon DMGビルド
+- Developer ID署名の検証、Apple公証、staple、Gatekeeper評価
+- Polar File Downloads BenefitへのDMGアップロード
+- `MrkAppRelease` の `README.md` / `README.ja.md` へのRelease History追記
+- MrkDownソースrepoの `vX.Y.Z` tag作成、必要なcommitとpush
+
+最後に、Polar購入者ポータルから実際にDMGをダウンロードし、スクリプトが表示するSHA-256と一致するか確認する。
+
 例:
 
 ```md
