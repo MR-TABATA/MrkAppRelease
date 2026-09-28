@@ -10,14 +10,19 @@ Signed and notarized macOS releases for Mrk apps. Source code is maintained in s
 | --- | --- | --- |
 | MrkDiff Hex | [Download app / 14-day trial](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.1.0/MrkDiff-Hex-1.1.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
 | MrkEditor | [Sold through Polar](https://buy.polar.sh/polar_cl_S32h7CYTXCxbYQ5IimcpI4DayCFkHUYQ8I6bv2tOki8) | [English](https://mr-tabata.github.io/MrEditor/MrkEditor.html) · [日本語](https://mr-tabata.github.io/MrEditor/MrkEditor.ja.html) |
-<!-- Add when the Polar product and checkout link exist:
 | MrkDown | [Sold through Polar](https://buy.polar.sh/polar_cl_0ZFDepQfKNP0v374jKC5AApEKjtQRs0gowqVs3x6YvO) | [English](https://github.com/MR-TABATA/MRDown) · [日本語](https://github.com/MR-TABATA/MRDown/blob/main/README.ja.md) |
--->
 
 MrkDiff Hex includes a 14-day free trial from first launch. No credit card is required. After purchase, enter your license key in the same app.
 MrkEditor does not have a separate trial; the free MrEditor app uses the same editor core and can be used before purchase.
+MrkDown does not have a separate trial; the free MRDown app is the trial path. After purchase, download the DMG from your Polar purchase portal and copy `MrkDown License Key - copy to app` into MrkDown Settings > Licenses.
 
 ## Release History
+
+### MrkDown 1.0.0 — 2026-09-28
+
+- Initial paid release for AI diff explanation.
+- Download and license key are available from your Polar purchase portal.
+- Developer ID signed and notarized Apple Silicon macOS app.
 
 ### MrkEditor 1.0.1 — 2026-09-27
 
