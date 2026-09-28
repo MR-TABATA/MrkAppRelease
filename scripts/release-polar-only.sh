@@ -18,7 +18,7 @@ CONFIG="$RELEASE_ROOT/products/$PRODUCT.conf"
 . "$CONFIG"
 
 printf '%s' "$VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || {
-    echo "usage: $0 <product> <major.minor.patch> [--check|--publish] [--dmg path] [--skip-tests] [--no-push] [--no-tag]" >&2
+    echo "usage: $0 <product> <major.minor.patch> [--check|--publish] [--dmg path] [--skip-tests] [--no-upload] [--no-push] [--no-tag]" >&2
     exit 2
 }
 case "$MODE" in --check|--publish) ;; *) echo "unknown mode: $MODE" >&2; exit 2;; esac
@@ -28,6 +28,7 @@ shift 2
 PREBUILT_DMG=""
 SKIP_TESTS=0
 NO_PUSH=0
+NO_UPLOAD=0
 NO_TAG=0
 while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -37,6 +38,7 @@ while [ "$#" -gt 0 ]; do
             shift 2
             ;;
         --skip-tests) SKIP_TESTS=1; shift ;;
+        --no-upload) NO_UPLOAD=1; shift ;;
         --no-push) NO_PUSH=1; shift ;;
         --no-tag) NO_TAG=1; shift ;;
         *) echo "unknown option: $1" >&2; exit 2 ;;
@@ -163,8 +165,12 @@ echo ">> Build DMG"
 build_dmg
 verify_and_notarize "$PUBLISH_DMG"
 
-echo ">> Upload to Polar"
-sh "$RELEASE_ROOT/scripts/upload-polar.sh" "$CONFIG" "$PUBLISH_DMG" "$VERSION"
+if [ "$NO_UPLOAD" -eq 0 ]; then
+    echo ">> Upload to Polar"
+    sh "$RELEASE_ROOT/scripts/upload-polar.sh" "$CONFIG" "$PUBLISH_DMG" "$VERSION"
+else
+    echo ">> Skip Polar upload"
+fi
 
 echo ">> Update release history"
 insert_release_history "$RELEASE_ROOT/README.md" en

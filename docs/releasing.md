@@ -188,6 +188,12 @@ sh scripts/release-polar-only.sh mrkdown 1.0.1 --check
 sh scripts/release-polar-only.sh mrkdown 1.0.1 --publish
 ```
 
+本番前にPolar uploadとremote pushを止めて流したい場合は、次を使う。ローカルcommitは作られるので、検証後に内容を確認してからpushする。
+
+```sh
+sh scripts/release-polar-only.sh mrkdown 1.0.1 --publish --no-upload --no-push --no-tag
+```
+
 既にビルド済みDMGを作ってある場合は、ビルドを省略してそのDMGをPolarへアップロードできる。
 
 ```sh
