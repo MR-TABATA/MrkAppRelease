@@ -139,6 +139,67 @@ MrkEditorと同じ販売方式のアプリでは、次の順番で進める。
 Products表では、MrkEditorのDownload欄は `Sold through Polar` / `Polar で販売` とし、必要なら
 Polar checkoutへリンクする。DMG URLへはリンクしない。
 
+## MrkDown
+
+MrkDown は MrkEditor と同じ **Polar-only paid型** とする。公開GitHub ReleaseにDMGを置かず、
+購入者だけがPolar購入者ポータルからDMGを取得する。
+別トライアルは設けない。購入前の試用導線は無料版MRDownとする。
+`scripts/release.sh --publish` は使わない。MrkDownにはまだMrkAppRelease共通エンジン用の
+ローカルDMG作成スクリプトが無く、現行のGitHub Actions release workflowはdraft releaseを作る
+設計なので、そのままpublic配布導線にしてはいけない。
+
+販売条件は次で固定する。
+
+- 価格: one-time purchase / USD 39.00
+- Activation: 1ライセンスキーで最大3台
+- Trial: なし
+- 対応環境: Apple Silicon Mac / macOS 13以降
+- ライセンス猶予: MrkEditorと同じ再検証・オフライン猶予
+- 移行: 無料版MRDownからの手動インポート。初版で未実装なら、その旨を明記する
+- 返金: 購入から30日以内
+- AI説明: オンデバイス経路とBYOK経路を分け、モデルへ送る内容を明記する
+- LP: MRDown GitHub PagesにMrkDownセクションを追加する
+- v1の販売機能: AI diff explanation。将来機能はロードマップ扱い
+
+販売導線を公開する前に、Polar側で次を作る。
+
+- 商品名: `MrkDown`
+- Benefit: License Keys（prefix `MRKDOWN`、activation limit 3、customer admin enabled）
+- Benefit: File Downloads（1つだけ）
+- Checkout Link: publicに共有する購入リンク
+
+商品を作ったら、`products/mrkdown.conf` の `POLAR_PRODUCT_ID` を実IDに差し替える。
+Polar Access Token は次の Keychain サービスへ保存する。
+
+```sh
+security add-generic-password -U -a "$USER" -s "com.hitoshi.MrkDown.polar-access-token" -w
+```
+
+初回販売公開のブランチでは、`README.md` / `README.ja.md` のProducts表へMrkDown行を追加し、
+Download欄をPolar Checkout Linkへ向ける。DMGへの直リンクは書かない。
+
+例:
+
+```md
+| MrkDown | [Sold through Polar](https://buy.polar.sh/polar_cl_0ZFDepQfKNP0v374jKC5AApEKjtQRs0gowqVs3x6YvO) | [English](https://github.com/MR-TABATA/MRDown) · [日本語](https://github.com/MR-TABATA/MRDown/blob/main/README.ja.md) |
+```
+
+```md
+| MrkDown | [Polar で販売](https://buy.polar.sh/polar_cl_0ZFDepQfKNP0v374jKC5AApEKjtQRs0gowqVs3x6YvO) | [English](https://github.com/MR-TABATA/MRDown) · [日本語](https://github.com/MR-TABATA/MRDown/blob/main/README.ja.md) |
+```
+
+MrkDownはApple Silicon専用である。公開文面では、MRDownの無料版はApple Silicon/Intel両方、
+MrkDownはApple Siliconのみであることを混同させない。
+
+初回販売までに残る実装タスク:
+
+1. MrkDown側にライセンスキー入力・検証UIを追加する。
+2. Polar Product IDだけでなく、License Keys Benefit IDも照合対象にする。
+3. MrkEditorと同じ再検証・オフライン猶予をTauri/Rust側で実装する。
+4. 署名・公証済みApple Silicon DMGを作るローカル手順を確定する。
+5. Polar購入者ポータルからDMGを実ダウンロードし、ローカル成果物とSHA-256を照合する。
+6. checkout linkをProducts表とMRDown GitHub PagesのMrkDownセクションへ出す。
+
 ## 製品を追加する
 
 `products/mrkdiff-hex.conf`を参考に`products/<product>.conf`を追加する。最低限、次が必要。
