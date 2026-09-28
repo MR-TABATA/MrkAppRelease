@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.2 — 2026-09-28
+
+- Picks up the free MrEditor app's "Open by Path…" (⌥⌘O): paste a copied local path to open it.
+- Download is available from your Polar purchase portal.
+
 ### MrkDown 1.0.0 — 2026-09-28
 
 - Initial paid release for AI diff explanation.
