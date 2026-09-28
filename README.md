@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.3 — 2026-09-28
+
+- Fixes a macOS Keychain prompt reappearing on every update (new installs only; existing ones need one deactivate/activate).
+- Download is available from your Polar purchase portal.
+
 ### MrkEditor 1.0.2 — 2026-09-28
 
 - Picks up the free MrEditor app's "Open by Path…" (⌥⌘O): paste a copied local path to open it.
