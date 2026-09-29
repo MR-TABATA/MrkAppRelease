@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.4 — 2026-09-29
+
+- Picks up MrEditor 1.19.1's search improvements through the shared core: full content stays visible, matches are highlighted, and the search panel can be dragged beyond the document window.
+- Download is available from your Polar purchase portal.
+
 ### MrkEditor 1.0.3 — 2026-09-28
 
 - Fixes a macOS Keychain prompt reappearing on every update (new installs only; existing ones need one deactivate/activate).
