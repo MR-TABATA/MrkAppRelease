@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.5 — 2026-09-29
+
+- Fixes typing into the detached search panel and preserves the black-and-gold MrkEditor app icon.
+- Download is available from your Polar purchase portal.
+
 ### MrkEditor 1.0.4 — 2026-09-29
 
 - Picks up MrEditor 1.19.1's search improvements through the shared core: full content stays visible, matches are highlighted, and the search panel can be dragged beyond the document window.
