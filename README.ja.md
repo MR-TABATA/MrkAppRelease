@@ -17,6 +17,12 @@ MrkEditor には別トライアルを設けません。購入前の試用は、�
 MrkDown には別トライアルを設けません。購入前の試用は無料版 MRDown で行えます。購入後は Polar の購入者ポータルから DMG をダウンロードし、`MrkDown License Key - copy to app` を MrkDown の Settings > Licenses に入力します。
 
 ## リリース履歴
+### MrkDown 1.0.1 — 2026-10-01
+
+- SSH 越しの Markdown を追加しました。`user@host:/path` を指定してリモートのファイルやフォルダを開き、ツリーを辿って、直して保存し、最近の接続を開き直せます。認証は手元の `ssh` の設定に任せ、秘密鍵は保存しません。向こうで変わったファイルは、上書きせずに止めます。
+- ダウンロードとライセンスキーは Polar の購入者ポータルから提供します。
+- Developer ID 署名・Apple 公証済みの Apple Silicon macOS アプリです。
+
 
 ### MrkEditor 1.0.6 — 2026-10-01
 
