@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.6 — 2026-10-01
+
+- Picks up MrEditor 1.20.0 through the shared core: edit and save remote files (only the edited lines travel; nothing is written if the line changed on the far side), an expandable folder tree with a file-name filter for remote and local folders, clearer errors for missing or unreadable remote targets, connection history, and regular-expression filtering.
+- Download is available from your Polar purchase portal.
+
 ### MrkEditor 1.0.5 — 2026-09-29
 
 - Fixes typing into the detached search panel and preserves the black-and-gold MrkEditor app icon.
