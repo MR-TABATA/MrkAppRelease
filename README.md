@@ -8,7 +8,7 @@ Signed and notarized macOS releases for Mrk apps. Source code is maintained in s
 
 | App | Download | Product page |
 | --- | --- | --- |
-| MrkDiff Hex | [Download app / 14-day trial](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.1.0/MrkDiff-Hex-1.1.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
+| MrkDiff Hex | [Download app / 14-day trial](https://github.com/MR-TABATA/MrkAppRelease/releases/download/mrkdiff-hex-v1.2.0/MrkDiff-Hex-1.2.0.dmg) | [English](https://mr-tabata.github.io/MrDiff/MrkDiffHex.en.html) · [日本語](https://mr-tabata.github.io/MrDiff/MrkDiffHex.ja.html) |
 | MrkEditor | [Sold through Polar](https://buy.polar.sh/polar_cl_S32h7CYTXCxbYQ5IimcpI4DayCFkHUYQ8I6bv2tOki8) | [English](https://mr-tabata.github.io/MrEditor/MrkEditor.html) · [日本語](https://mr-tabata.github.io/MrEditor/MrkEditor.ja.html) |
 | MrkDown | [Sold through Polar](https://buy.polar.sh/polar_cl_0ZFDepQfKNP0v374jKC5AApEKjtQRs0gowqVs3x6YvO) | [English](https://github.com/MR-TABATA/MRDown) · [日本語](https://github.com/MR-TABATA/MRDown/blob/main/README.ja.md) |
 
@@ -68,7 +68,7 @@ The workflow first tries the repository's standard `GITHUB_TOKEN`. If GitHub doe
 
 ## Release naming
 
-- Tag: `<product>-v<version>` (for example, `mrkdiff-hex-v1.1.0`)
+- Tag: `<product>-v<version>` (for example, `mrkdiff-hex-v1.2.0`)
 - Asset: `<Product>-<version>.dmg`
 - Every public DMG must be Developer ID signed, notarized by Apple, stapled, and checked with Gatekeeper before upload.
 
