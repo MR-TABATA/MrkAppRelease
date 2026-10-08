@@ -17,6 +17,12 @@ MrkEditor does not have a separate trial; the free MrEditor app uses the same ed
 MrkDown does not have a separate trial; the free MRDown app is the trial path. After purchase, download the DMG from your Polar purchase portal and copy `MrkDown License Key - copy to app` into MrkDown Settings > Licenses.
 
 ## Release History
+
+### MrkEditor 1.0.7 — 2026-10-08
+
+- Picks up MrEditor 1.21.0 through the shared core: click a line number to set or clear a bookmark, and a search-bar button shows only the bookmarked lines.
+- The analysis tabs lead into each other: "Count this range" from the time histogram, a date column in column stats opens its time histogram, and a cross-file search result can run the aggregate with the expression you searched.
+- Download is available from your Polar purchase portal.
 ### MrkDown 1.0.1 — 2026-10-01
 
 - Adds Markdown over SSH: open a remote file or folder (`user@host:/path`), browse the tree, edit and save it back, and reopen recent connections. Authentication is left to your own `ssh` setup; no private key is stored. Saving refuses to overwrite a file that changed on the far side.
