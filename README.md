@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.8 — 2026-10-12
+
+- Picks up MrEditor 1.22.1 through the shared core: `tail -f app.log | mrkeditor` opens at the first byte and follows the tail, and running it again adds the stream to the open window as a tab. A stream piped into MrkEditor stays in MrkEditor even when the free MrEditor is also open.
+- Download is available from your Polar purchase portal.
+
 ### MrkEditor 1.0.7 — 2026-10-08
 
 - Picks up MrEditor 1.21.0 through the shared core: click a line number to set or clear a bookmark, and a search-bar button shows only the bookmarked lines.
