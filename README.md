@@ -18,6 +18,11 @@ MrkDown does not have a separate trial; the free MRDown app is the trial path. A
 
 ## Release History
 
+### MrkEditor 1.0.9 — 2026-10-21
+
+- Picks up MrEditor 1.22.2 through the shared core: fixes garbled file names and extraction failures from Windows-generated zip archives (CP932 / Shift-JIS). Adds new actions under Format menu: remove empty lines, extract duplicate lines only, convert tabs ⇄ 4 spaces, and bidirectional UNIX timestamp ⇄ date conversions.
+- Download is available from your Polar purchase portal.
+
 ### MrkEditor 1.0.8 — 2026-10-12
 
 - Picks up MrEditor 1.22.1 through the shared core: `tail -f app.log | mrkeditor` opens at the first byte and follows the tail, and running it again adds the stream to the open window as a tab. A stream piped into MrkEditor stays in MrkEditor even when the free MrEditor is also open.
