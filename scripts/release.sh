@@ -121,7 +121,7 @@ echo ">> Release notes"; cat "$notes"
 echo ">> Build, sign and notarize"
 (cd "$SOURCE_ROOT" && SIGN_IDENTITY="$SIGN_IDENTITY" NOTARY_PROFILE="$NOTARY_PROFILE" VERSION="$VERSION" sh "$BUILD_SCRIPT")
 [ -f "$BUILT_DMG" ] || { echo "DMG not found: $BUILT_DMG" >&2; exit 1; }
-cp "$BUILT_DMG" "$PUBLISH_DMG"
+[ "$BUILT_DMG" = "$PUBLISH_DMG" ] || cp "$BUILT_DMG" "$PUBLISH_DMG"   # 同じパスのとき cp は失敗する（MrkEditor）
 
 replace_refs
 git -C "$SOURCE_ROOT" add "$VERSION_FILE" "$CHANGELOG_FILE" $SOURCE_REFERENCE_FILES
