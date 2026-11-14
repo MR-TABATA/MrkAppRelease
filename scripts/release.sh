@@ -67,7 +67,8 @@ create_changelog() {
 }
 replace_refs() {
     old="$(tr -d '[:space:]' < "$SOURCE_ROOT/$VERSION_FILE")"
-    old_tag="$PRODUCT_SLUG-v$old"; old_asset="$ASSET_STEM-$old.dmg"
+    # 改名の初回だけ、設定の OLD_PRODUCT_SLUG / OLD_ASSET_STEM で、旧い名前のリンクを探す。
+    old_tag="${OLD_PRODUCT_SLUG:-$PRODUCT_SLUG}-v$old"; old_asset="${OLD_ASSET_STEM:-$ASSET_STEM}-$old.dmg"
     new_url="https://github.com/$REPOSITORY/releases/download/$TAG/$ASSET"
     printf '%s\n' "$VERSION" > "$SOURCE_ROOT/$VERSION_FILE"
     for spec in \
