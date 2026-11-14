@@ -5,7 +5,7 @@
 Mrk系アプリには、配布方法が2種類ある。
 
 1. **public trial型**: 未購入者がGitHubからDMGを直接ダウンロードして試せるアプリ。
-   例: MrkDiff Hex。公開リポジトリ `MR-TABATA/MrkAppRelease` のGitHub Releaseに
+   例: MrkDiff（旧 MrkDiff Hex）。公開リポジトリ `MR-TABATA/MrkAppRelease` のGitHub Releaseに
    DMG assetを置く。
 2. **Polar-only paid型**: 別トライアルを設けず、購入者だけがPolar購入者ポータルから
    DMGをダウンロードするアプリ。例: MrkEditor。`MR-TABATA/MrkAppRelease` には
@@ -48,27 +48,29 @@ Polarでは対象商品にFile Downloads Benefitを1つだけ紐付ける。Orga
 - `files:write`
 
 トークンは製品設定に書かず、製品ごとに指定されたmacOS Keychainサービスへ一度だけ保存する。
-MrkDiff Hexの場合は次のとおり。
+MrkDiffの場合は次のとおり。
 
 ```sh
 security add-generic-password -U -a "$USER" -s "com.aaedit.MrkDiff.polar-access-token" -w
 ```
 
-## MrkDiff Hex
+## MrkDiff（旧 MrkDiff Hex）
 
-設定は `products/mrkdiff-hex.conf`。事前検査は外部へ公開せず、ファイルも変更しない。
+設定は `products/mrkdiff.conf`。事前検査は外部へ公開せず、ファイルも変更しない。
 例では次に出すバージョンを `1.0.1` としている。
 
 ```sh
 cd ~/Git/MrkAppRelease
-sh scripts/release.sh mrkdiff-hex 1.0.1 --check
+sh scripts/release.sh mrkdiff 1.0.1 --check
 ```
+
+**初回の改名リリース（1.6.0）だけ**、設定の `OLD_PRODUCT_SLUG` / `OLD_ASSET_STEM` が、旧い名前のリンクを探して書き換える。済んだら、設定から、この 2 行を消す。
 
 本番公開は次の1コマンドで行う。`--publish`自体を公開の明示的な承認とする。
 
 ```sh
 cd ~/Git/MrkAppRelease
-sh scripts/release.sh mrkdiff-hex 1.0.1 --publish
+sh scripts/release.sh mrkdiff 1.0.1 --publish
 ```
 
 MrkDiff側の互換ラッパーから実行しても同じ結果になる。
@@ -81,7 +83,7 @@ sh scripts/release.sh 1.0.1 --publish
 ## MrkEditor
 
 設定は `products/mrkeditor.conf`。MrkEditor は非公開ソース、MrEditor は公開コア兼LP側として扱う。
-Polar 商品は `c061ff3e-30d0-4c1d-8e94-ca36f5ba8248`、Organization は MrkDiff Hex と同じ。
+Polar 商品は `c061ff3e-30d0-4c1d-8e94-ca36f5ba8248`、Organization は MrkDiff と同じ。
 
 Polar Access Token は次の Keychain サービスへ保存する。
 
@@ -236,7 +238,7 @@ MrkDownはApple Siliconのみであることを混同させない。
 
 ## 製品を追加する
 
-`products/mrkdiff-hex.conf`を参考に`products/<product>.conf`を追加する。最低限、次が必要。
+`products/mrkdiff.conf`を参考に`products/<product>.conf`を追加する。最低限、次が必要。
 
 - 製品名、slug、DMG名
 - ソースリポジトリと公開LPリポジトリ
